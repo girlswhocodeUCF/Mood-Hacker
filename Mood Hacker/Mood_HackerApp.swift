@@ -2,7 +2,7 @@
 //  Mood_HackerApp.swift
 //  Mood Hacker
 //
-//  Created by Rachel Leiner on 2/27/24.
+//  Created by Gabrielle Pariag on 2/27/24.
 //
 
 import SwiftUI
