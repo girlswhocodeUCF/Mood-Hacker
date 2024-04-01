@@ -10,11 +10,12 @@
 		1F184EA92B8E7F94009BA79A /* Mood_HackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F184EA82B8E7F94009BA79A /* Mood_HackerApp.swift */; };
 		1F184EAB2B8E7F94009BA79A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F184EAA2B8E7F94009BA79A /* ContentView.swift */; };
 		1F184EAD2B8E7F94009BA79A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F184EAC2B8E7F94009BA79A /* Item.swift */; };
-		1F184EAF2B8E7F99009BA79A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F184EAE2B8E7F99009BA79A /* Assets.xcassets */; };
 		1F184EB22B8E7F99009BA79A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F184EB12B8E7F99009BA79A /* Preview Assets.xcassets */; };
 		1F184EBC2B8E7F9A009BA79A /* Mood_HackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F184EBB2B8E7F9A009BA79A /* Mood_HackerTests.swift */; };
 		1F184EC62B8E7F9A009BA79A /* Mood_HackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F184EC52B8E7F9A009BA79A /* Mood_HackerUITests.swift */; };
 		1F184EC82B8E7F9A009BA79A /* Mood_HackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F184EC72B8E7F9A009BA79A /* Mood_HackerUITestsLaunchTests.swift */; };
+		E1258AD32BBB4EF7006F2143 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1258AD22BBB4EF7006F2143 /* Assets.xcassets */; };
+		E1258AD82BBB4FB6006F2143 /* MainpageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1258AD72BBB4FB6006F2143 /* MainpageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,13 +40,15 @@
 		1F184EA82B8E7F94009BA79A /* Mood_HackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood_HackerApp.swift; sourceTree = "<group>"; };
 		1F184EAA2B8E7F94009BA79A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1F184EAC2B8E7F94009BA79A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		1F184EAE2B8E7F99009BA79A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F184EB12B8E7F99009BA79A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1F184EB72B8E7F9A009BA79A /* Mood HackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mood HackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F184EBB2B8E7F9A009BA79A /* Mood_HackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood_HackerTests.swift; sourceTree = "<group>"; };
 		1F184EC12B8E7F9A009BA79A /* Mood HackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mood HackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F184EC52B8E7F9A009BA79A /* Mood_HackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood_HackerUITests.swift; sourceTree = "<group>"; };
 		1F184EC72B8E7F9A009BA79A /* Mood_HackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood_HackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E1258AD22BBB4EF7006F2143 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/Assets.xcassets; sourceTree = "<group>"; };
+		E1258AD42BBB4EFD006F2143 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/Assets.xcassets; sourceTree = "<group>"; };
+		E1258AD72BBB4FB6006F2143 /* MainpageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +99,11 @@
 		1F184EA72B8E7F94009BA79A /* Mood Hacker */ = {
 			isa = PBXGroup;
 			children = (
+				E1258AD72BBB4FB6006F2143 /* MainpageView.swift */,
 				1F184EA82B8E7F94009BA79A /* Mood_HackerApp.swift */,
 				1F184EAA2B8E7F94009BA79A /* ContentView.swift */,
 				1F184EAC2B8E7F94009BA79A /* Item.swift */,
-				1F184EAE2B8E7F99009BA79A /* Assets.xcassets */,
+				E1258AD42BBB4EFD006F2143 /* Assets.xcassets */,
 				1F184EB02B8E7F99009BA79A /* Preview Content */,
 			);
 			path = "Mood Hacker";
@@ -126,6 +130,7 @@
 			children = (
 				1F184EC52B8E7F9A009BA79A /* Mood_HackerUITests.swift */,
 				1F184EC72B8E7F9A009BA79A /* Mood_HackerUITestsLaunchTests.swift */,
+				E1258AD22BBB4EF7006F2143 /* Assets.xcassets */,
 			);
 			path = "Mood HackerUITests";
 			sourceTree = "<group>";
@@ -235,7 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F184EB22B8E7F99009BA79A /* Preview Assets.xcassets in Resources */,
-				1F184EAF2B8E7F99009BA79A /* Assets.xcassets in Resources */,
+				E1258AD32BBB4EF7006F2143 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1258AD82BBB4FB6006F2143 /* MainpageView.swift in Sources */,
 				1F184EAB2B8E7F94009BA79A /* ContentView.swift in Sources */,
 				1F184EAD2B8E7F94009BA79A /* Item.swift in Sources */,
 				1F184EA92B8E7F94009BA79A /* Mood_HackerApp.swift in Sources */,
