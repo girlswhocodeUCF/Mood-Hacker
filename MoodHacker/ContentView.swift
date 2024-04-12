@@ -25,6 +25,7 @@ struct ContentView_Previews: PreviewProvider{
 
 struct signUpBtn: View {
     var body: some View{
+
         Text("Sign in").frame(maxWidth:200).padding().font(.custom("SometypeMono-Regular", size: 16)).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
     }
 }
@@ -38,9 +39,10 @@ struct logInbtn: View {
 
 
 struct signUpPage: View{
-    @State private var username : String = ""
+    @State private var name : String = ""
     @State private var email : String = ""
     @State private var password : String = ""
+    @State private var confirmPassword : String = ""
     var body: some View{
         NavigationView{
             
@@ -60,22 +62,18 @@ struct signUpPage: View{
                         .font(.custom("SometypeMono-Regular", size: 16))
                     
                     
-                    
-                    TextField("Username", text: $username).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 20)).background(Color.white).cornerRadius(20).padding(.all)
-                        .foregroundColor(.black)
-                        .accentColor(.purple)
-                    
-                    TextField("Email", text: $email).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 20)).background(Color.white).cornerRadius(20).padding(.bottom)
-                        .foregroundColor(.black)
-                        .accentColor(.purple)
-                    
-                    TextField("Password", text: $password).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 20)).background(Color.white).cornerRadius(20).padding(.bottom)
-                        .foregroundColor(.black)
-                        .accentColor(.purple)
-                    
-                    TextField("Confirm Password", text: $password).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 20)).background(Color.white).cornerRadius(20).padding(.bottom)
-                        .foregroundColor(.black)
-                        .accentColor(.purple)
+
+                    VStack{
+                        InputView(text: $email, placeholder: "Email")
+                        
+                        InputView(text: $name, placeholder: "Name")
+                        
+                        InputView(text: $password, placeholder: "Enter your Password", isSecureField:true)
+                        
+                        InputView(text: $confirmPassword, placeholder: "Confirm Password", isSecureField:true)
+                        
+                    }.padding(.horizontal).padding(.top, 12);
+
                     
                     
                     signUpBtn().padding(.top)
@@ -99,7 +97,6 @@ struct signUpPage: View{
 }
 
 struct logInScreen : View{
-    @State private var username : String = ""
     @State private var email : String = ""
     @State private var password : String = ""
     var body: some View{
@@ -108,6 +105,7 @@ struct logInScreen : View{
             Color(hue: 0.785, saturation: 0.096, brightness: 0.996).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             VStack{
                 Image("Image").resizable().aspectRatio(contentMode:.fit).frame(width:200, height: 150)
+
                 Text("Mood Hacker")
                     .font(.custom("SometypeMono-Regular", size: 32)).fontWeight(.bold)
                     .multilineTextAlignment(.center)
@@ -123,6 +121,11 @@ struct logInScreen : View{
                 TextField("Password", text: $password).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 20)).background(Color.white).cornerRadius(20).padding(.bottom)
                     .accentColor(.purple)
                 
+                VStack{
+                    InputView(text: $email, placeholder: "Email")
+                    
+                    InputView(text: $password, placeholder: "Password", isSecureField:true)
+                }.padding(.horizontal).padding(.top, 12);
                 
                 logInbtn().padding(.top)
                 

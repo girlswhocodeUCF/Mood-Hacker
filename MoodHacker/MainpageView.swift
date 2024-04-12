@@ -27,6 +27,13 @@ struct mainPage: View{
                 
                 Color(hue: 0.785, saturation: 0.096, brightness: 0.996).edgesIgnoringSafeArea(.bottom)
                 
+
+                
+                
+            }
+            
+            VStack {
+
                 Circle().trim(from: 0.0, to: 0.50).position(x:215).frame(width: 430).foregroundColor(Color(red: 0.8745098039215686, green:0.7019607843137254, blue: 0.9372549019607843))
                 
                 Text("Welcome Back, \(username)!")
