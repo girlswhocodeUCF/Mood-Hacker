@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D822C532BC8E80900373EC4 /* SometypeMono-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D822C522BC8E80800373EC4 /* SometypeMono-VariableFont_wght.ttf */; };
 		E1173E8A2BB72D6C00F6C886 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1173E892BB72D6C00F6C886 /* ContentView.swift */; };
 		E1173E8E2BB72D6D00F6C886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1173E8D2BB72D6D00F6C886 /* Assets.xcassets */; };
 		E1173E912BB72D6D00F6C886 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1173E902BB72D6D00F6C886 /* Preview Assets.xcassets */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D822C522BC8E80800373EC4 /* SometypeMono-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SometypeMono-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		0D822C542BC8E9B200373EC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E1173E842BB72D6C00F6C886 /* MoodHacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodHacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1173E892BB72D6C00F6C886 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E1173E8D2BB72D6D00F6C886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D822C512BC8E7C900373EC4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0D822C522BC8E80800373EC4 /* SometypeMono-VariableFont_wght.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E1173E7B2BB72D6B00F6C886 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +66,8 @@
 		E1173E862BB72D6C00F6C886 /* MoodHacker */ = {
 			isa = PBXGroup;
 			children = (
+				0D822C542BC8E9B200373EC4 /* Info.plist */,
+				0D822C512BC8E7C900373EC4 /* Fonts */,
 				E18C74822BBB53D00057076D /* MoodHackerApp.swift */,
 				E1173E892BB72D6C00F6C886 /* ContentView.swift */,
 				E18C74802BBB53B20057076D /* Item.swift */,
@@ -132,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1173E912BB72D6D00F6C886 /* Preview Assets.xcassets in Resources */,
+				0D822C532BC8E80900373EC4 /* SometypeMono-VariableFont_wght.ttf in Resources */,
 				E1173E8E2BB72D6D00F6C886 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,9 +294,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoodHacker/Preview Content\"";
-				DEVELOPMENT_TEAM = P43G4AGKR8;
+				DEVELOPMENT_TEAM = 8AU6296BKB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoodHacker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,9 +324,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoodHacker/Preview Content\"";
-				DEVELOPMENT_TEAM = P43G4AGKR8;
+				DEVELOPMENT_TEAM = 8AU6296BKB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoodHacker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
