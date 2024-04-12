@@ -25,7 +25,7 @@ struct ContentView_Previews: PreviewProvider{
 
 struct signUpBtn: View {
     var body: some View{
-        Text("Sign in").frame(maxWidth:200).padding().font(.title3).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
+        Text("Sign up").frame(maxWidth:200).padding().font(.title3).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
     }
 }
 
@@ -38,9 +38,10 @@ struct logInbtn: View {
 
 
 struct signUpPage: View{
-    @State private var username : String = ""
+    @State private var name : String = ""
     @State private var email : String = ""
     @State private var password : String = ""
+    @State private var confirmPassword : String = ""
     var body: some View{
         NavigationView{
             
@@ -53,13 +54,16 @@ struct signUpPage: View{
                     Text("Mood Hacker").font(.title).fontWeight(.bold).padding(.all)
                     Text("create a new account").foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.704, green: 0.401, blue: 1.001)/*@END_MENU_TOKEN@*/).padding(.bottom)
                     
-                    TextField("Username", text: $username).padding(.all, 10).frame(maxWidth:290).font(.title3).background(Color.white).cornerRadius(20).padding(.all)
-                    
-                    TextField("Email", text: $email).padding(.all, 10).frame(maxWidth:290).font(.title3).background(Color.white).cornerRadius(20).padding(.bottom)
-                    
-                    TextField("Password", text: $password).padding(.all, 10).frame(maxWidth:290).font(.title3).background(Color.white).cornerRadius(20).padding(.bottom)
-                    
-                    TextField("Confirm Password", text: $password).padding(.all, 10).frame(maxWidth:290).font(.title3).background(Color.white).cornerRadius(20).padding(.bottom)
+                    VStack{
+                        InputView(text: $email, placeholder: "Email")
+                        
+                        InputView(text: $name, placeholder: "Name")
+                        
+                        InputView(text: $password, placeholder: "Enter your Password", isSecureField:true)
+                        
+                        InputView(text: $confirmPassword, placeholder: "Confirm Password", isSecureField:true)
+                        
+                    }.padding(.horizontal).padding(.top, 12);
                     
                     
                     signUpBtn().padding(.top)
@@ -82,7 +86,6 @@ struct signUpPage: View{
 }
 
 struct logInScreen : View{
-    @State private var username : String = ""
     @State private var email : String = ""
     @State private var password : String = ""
     var body: some View{
@@ -92,12 +95,13 @@ struct logInScreen : View{
             VStack{
                 Image("Image").resizable().aspectRatio(contentMode:.fit).frame(width:200, height: 150)
                 Text("Mood Hacker").font(.title).fontWeight(.bold).padding(.all)
-                Text("create a new account").foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.704, green: 0.401, blue: 1.001)/*@END_MENU_TOKEN@*/).padding(.bottom)
+                Text("Create a new account").foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.704, green: 0.401, blue: 1.001)/*@END_MENU_TOKEN@*/).padding(.bottom)
                 
-                TextField("Username", text: $username).padding(.all, 10).frame(maxWidth:290).font(.title3).background(Color.white).cornerRadius(20).padding(.all)
-                
-                TextField("Password", text: $password).padding(.all, 10).frame(maxWidth:290).font(.title3).background(Color.white).cornerRadius(20).padding(.bottom)
-                
+                VStack{
+                    InputView(text: $email, placeholder: "Email")
+                    
+                    InputView(text: $password, placeholder: "Password", isSecureField:true)
+                }.padding(.horizontal).padding(.top, 12);
                 
                 logInbtn().padding(.top)
                 

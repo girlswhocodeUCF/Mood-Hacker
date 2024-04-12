@@ -27,6 +27,8 @@ struct mainPage: View{
                 Color(hue: 0.785, saturation: 0.096, brightness: 0.996).edgesIgnoringSafeArea(.bottom)
                 
                 Circle().trim(from: 0.0, to: 0.50).position(x:215).frame(width: 430).foregroundColor(Color(red: 0.7, green:0.4, blue: 1))
+                
+                
             }
             
             VStack {
