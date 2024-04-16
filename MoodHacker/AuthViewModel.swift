@@ -23,7 +23,13 @@ class AuthViewModel: ObservableObject{
     }
     
     func signIn(withEmail email: String, password: String) async throws {
-        print("Sign in..")
+        do{
+            let result = try await Auth.auth().signIn(withEmail:email, password:password)
+            self.userSession = result.user
+            await fetchUser()
+        } catch {
+            print("Failed to log in with user \(error.localizedDescription)")
+        }
     }
     
     func createUser(withEmail email: String, password: String, fullname: String) async throws{
