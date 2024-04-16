@@ -10,6 +10,12 @@
 		0D822C532BC8E80900373EC4 /* SometypeMono-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D822C522BC8E80800373EC4 /* SometypeMono-VariableFont_wght.ttf */; };
 		E10EE5052BC9A48C000C0E3F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10EE5042BC9A48C000C0E3F /* InputView.swift */; };
 		E10EE5072BC9B287000C0E3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10EE5062BC9B287000C0E3F /* User.swift */; };
+
+		0D822C532BC8E80900373EC4 /* SometypeMono-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D822C522BC8E80800373EC4 /* SometypeMono-VariableFont_wght.ttf */; };
+		1F4890842BC9C0B5008AA2E3 /* RecommenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4890832BC9C0B5008AA2E3 /* RecommenderService.swift */; };
+		1F66691C2BCCA8A3001CDDF8 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F66691B2BCCA8A3001CDDF8 /* ActivityModel.swift */; };
+		1F6669202BCEDCA6001CDDF8 /* activities.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1F66691F2BCEDCA5001CDDF8 /* activities.csv */; };
+		1FFA18B42BCEDE850067F962 /* activity_list.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA18B32BCEDE850067F962 /* activity_list.csv */; };
 		E1173E8A2BB72D6C00F6C886 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1173E892BB72D6C00F6C886 /* ContentView.swift */; };
 		E1173E8E2BB72D6D00F6C886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1173E8D2BB72D6D00F6C886 /* Assets.xcassets */; };
 		E1173E912BB72D6D00F6C886 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1173E902BB72D6D00F6C886 /* Preview Assets.xcassets */; };
@@ -29,7 +35,11 @@
 		0D822C522BC8E80800373EC4 /* SometypeMono-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SometypeMono-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		0D822C542BC8E9B200373EC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E10EE5042BC9A48C000C0E3F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		E10EE5062BC9B287000C0E3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E10EE5062BC9B287000C0E3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };		1F4890832BC9C0B5008AA2E3 /* RecommenderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderService.swift; sourceTree = "<group>"; };
+		1F66691B2BCCA8A3001CDDF8 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		1F66691F2BCEDCA5001CDDF8 /* activities.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = activities.csv; path = ../../../Downloads/activities.csv; sourceTree = "<group>"; };
+		1FFA18B32BCEDE850067F962 /* activity_list.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = activity_list.csv; path = ../../Downloads/activity_list.csv; sourceTree = "<group>"; };
+		1FFA18B52BCEDE980067F962 /* activity_list.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = activity_list.csv; sourceTree = "<group>"; };
 		E1173E842BB72D6C00F6C886 /* MoodHacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodHacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1173E892BB72D6C00F6C886 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		E1173E8D2BB72D6D00F6C886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,9 +75,17 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		1F6669192BCCA86D001CDDF8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E1173E7B2BB72D6B00F6C886 = {
 			isa = PBXGroup;
 			children = (
+				1FFA18B32BCEDE850067F962 /* activity_list.csv */,
 				E1173E862BB72D6C00F6C886 /* MoodHacker */,
 				E1173E852BB72D6C00F6C886 /* Products */,
 			);
@@ -85,11 +103,16 @@
 			isa = PBXGroup;
 			children = (
 				0D822C542BC8E9B200373EC4 /* Info.plist */,
+				1F6669192BCCA86D001CDDF8 /* Models */,
 				0D822C512BC8E7C900373EC4 /* Fonts */,
 				E18C74822BBB53D00057076D /* MoodHackerApp.swift */,
+				1F66691B2BCCA8A3001CDDF8 /* ActivityModel.swift */,
 				E1173E892BB72D6C00F6C886 /* ContentView.swift */,
+				1F66691F2BCEDCA5001CDDF8 /* activities.csv */,
+				1FFA18B52BCEDE980067F962 /* activity_list.csv */,
 				E10EE5062BC9B287000C0E3F /* User.swift */,
 				E18C74802BBB53B20057076D /* Item.swift */,
+				1F4890832BC9C0B5008AA2E3 /* RecommenderService.swift */,
 				E10EE5042BC9A48C000C0E3F /* InputView.swift */,
 				E1258AC62BBB437D006F2143 /* MainpageView.swift */,
 				E1B48A9D2BCF0136000ABE4A /* profilePage.swift */,
@@ -177,6 +200,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1173E912BB72D6D00F6C886 /* Preview Assets.xcassets in Resources */,
+				1FFA18B42BCEDE850067F962 /* activity_list.csv in Resources */,
+				1F6669202BCEDCA6001CDDF8 /* activities.csv in Resources */,
 				0D822C532BC8E80900373EC4 /* SometypeMono-VariableFont_wght.ttf in Resources */,
 				E1173E8E2BB72D6D00F6C886 /* Assets.xcassets in Resources */,
 				E11CA3E52BC9C3AE00B90559 /* GoogleService-Info.plist in Resources */,
@@ -198,6 +223,8 @@
 				E10EE5052BC9A48C000C0E3F /* InputView.swift in Sources */,
 				E1173E8A2BB72D6C00F6C886 /* ContentView.swift in Sources */,
 				E1258AC72BBB437D006F2143 /* MainpageView.swift in Sources */,
+				1F66691C2BCCA8A3001CDDF8 /* ActivityModel.swift in Sources */,
+				1F4890842BC9C0B5008AA2E3 /* RecommenderService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +358,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoodHacker/Preview Content\"";
-				DEVELOPMENT_TEAM = 8AU6296BKB;
+				DEVELOPMENT_TEAM = P43G4AGKR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoodHacker/Info.plist;
@@ -345,7 +372,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "LK-.MoodHacker";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=*]" = MoodHacker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -361,7 +388,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoodHacker/Preview Content\"";
-				DEVELOPMENT_TEAM = 8AU6296BKB;
+				DEVELOPMENT_TEAM = P43G4AGKR8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoodHacker/Info.plist;
@@ -375,7 +402,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "LK-.MoodHacker";
+				PRODUCT_BUNDLE_IDENTIFIER = MoodHacker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
