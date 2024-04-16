@@ -16,9 +16,9 @@ struct InputView: View{
         VStack(alignment: .leading, spacing: 12){
             
             if isSecureField {
-                SecureField(placeholder, text: $text).padding(.all, 10).frame(maxWidth:290).font(.title3).background(Color.white).cornerRadius(20).padding(.bottom, 18);
+                SecureField(placeholder, text: $text).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 14)).background(Color.white).cornerRadius(20).padding(.bottom, 18);
             }else {
-                TextField(placeholder, text: $text).padding(.all, 10).frame(maxWidth:290).font(.title3).background(Color.white).cornerRadius(20).padding(.bottom, 18);
+                TextField(placeholder, text: $text).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 14)).background(Color.white).cornerRadius(20).padding(.bottom, 18);
             }
             
         }
