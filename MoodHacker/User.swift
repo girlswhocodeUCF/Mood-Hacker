@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 //User Object for Authentication :]
 
 struct User: Identifiable, Codable{
@@ -26,5 +25,5 @@ struct User: Identifiable, Codable{
 }
 
 extension User {
-    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Kobe Bryant", email: "poop@gmail.com")
+    static var MOCK_USER = User(id: NSUUID().uuidString, fullname: "Gabby", email: "gabby@gmail.com")
 }

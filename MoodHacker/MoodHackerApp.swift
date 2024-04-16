@@ -7,12 +7,17 @@
 
 import SwiftUI
 import SwiftData
-
+import Firebase
 @main
 struct MoodHackerApp: App {
+    @StateObject var viewModel = AuthViewModel()
+    
+    init(){
+        FirebaseApp.configure()
+    }
     var body: some Scene{
         WindowGroup{
-            ContentView()
+            ContentView().environmentObject(viewModel)
         }
     }
 }

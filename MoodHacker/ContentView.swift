@@ -11,31 +11,30 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel : AuthViewModel
+    
     var body: some View {
-        signUpPage()
+        Group {
+            if viewModel.userSession != nil {
+                MainpageView()
+            } else {
+                signUpPage()
+            }
+        }
+        
+//        //if you want to preview, comment above, and uncomment this
+//        signUpPage()
+    
     }
+
 }
 
 
 struct ContentView_Previews: PreviewProvider{
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(AuthViewModel())
     }
 }
-
-struct signUpBtn: View {
-    var body: some View{
-
-        Text("Sign in").frame(maxWidth:200).padding().font(.custom("SometypeMono-Regular", size: 16)).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
-    }
-}
-
-struct logInbtn: View {
-    var body: some View{
-        Text("Log in").frame(maxWidth:200).padding().font(.custom("SometypeMono-Regular", size: 16)).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
-    }
-}
-
 
 
 struct signUpPage: View{
@@ -43,6 +42,8 @@ struct signUpPage: View{
     @State private var email : String = ""
     @State private var password : String = ""
     @State private var confirmPassword : String = ""
+    
+    @EnvironmentObject var viewModel : AuthViewModel
     var body: some View{
         NavigationView{
             
@@ -76,7 +77,14 @@ struct signUpPage: View{
 
                     
                     
-                    signUpBtn().padding(.top)
+                    Button{
+                        Task {
+                            try await viewModel.createUser(withEmail:email, password: password, fullname:name)
+                        }
+                    }label:{
+                        
+                        Text("Sign up").frame(maxWidth:200).padding().font(.custom("SometypeMono-Regular", size: 16)).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
+                    }.padding(.top)
                     
                     HStack{
                         
@@ -99,6 +107,9 @@ struct signUpPage: View{
 struct logInScreen : View{
     @State private var email : String = ""
     @State private var password : String = ""
+    
+    @EnvironmentObject var viewModel : AuthViewModel
+    
     var body: some View{
         
         ZStack{
@@ -115,11 +126,6 @@ struct logInScreen : View{
                 Text("create a new account").foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.704, green: 0.401, blue: 1.001)/*@END_MENU_TOKEN@*/).padding(.bottom)
                     .font(.custom("SometypeMono-Regular", size: 16))
                 
-                TextField("Username", text: $username).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 20)).background(Color.white).cornerRadius(20).padding(.all)
-                    .accentColor(.purple)
-                
-                TextField("Password", text: $password).padding(.all, 10).frame(maxWidth:290).font(.custom("SometypeMono-Regular", size: 20)).background(Color.white).cornerRadius(20).padding(.bottom)
-                    .accentColor(.purple)
                 
                 VStack{
                     InputView(text: $email, placeholder: "Email")
@@ -127,7 +133,15 @@ struct logInScreen : View{
                     InputView(text: $password, placeholder: "Password", isSecureField:true)
                 }.padding(.horizontal).padding(.top, 12);
                 
-                logInbtn().padding(.top)
+                Button{
+                    Task {
+                        try await viewModel.signIn(withEmail:email, password: password)
+                    }
+                }label:{
+                    
+                    Text("Log in").frame(maxWidth:200).padding().font(.custom("SometypeMono-Regular", size: 16)).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
+                }.padding(.top)
+    
                 
                 HStack{
                     
