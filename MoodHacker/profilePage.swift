@@ -15,7 +15,7 @@ struct profilePage: View{
     var body: some View{
         
             VStack {
-                Text("user").fontWeight(.semibold).padding(.top, 4)
+                Text("Settings").fontWeight(.semibold).padding(.top, 4).font(.custom("SometypeMono-Regular", size: 16))
                 
                 Button{
                     viewModel.signOut()

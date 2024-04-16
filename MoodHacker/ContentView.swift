@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         Group {
             if viewModel.userSession != nil {
-                MainpageView()
+                MainpageView() //later on, replace .environmentObject and (authViewModel()) or (viewModel)
             } else {
                 signUpPage()
             }
@@ -29,6 +29,23 @@ struct ContentView: View {
 
 }
 
+extension logInScreen: AuthenticationFromProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@") && !password.isEmpty
+        && password.count > 5
+    }
+}
+
+extension signUpPage: AuthenticationFromProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@") && !password.isEmpty
+        && password.count > 5
+        && confirmPassword == password
+        && !name.isEmpty
+    }
+}
 
 struct ContentView_Previews: PreviewProvider{
     static var previews: some View {
@@ -71,7 +88,17 @@ struct signUpPage: View{
                         
                         InputView(text: $password, placeholder: "Enter your Password", isSecureField:true)
                         
-                        InputView(text: $confirmPassword, placeholder: "Confirm Password", isSecureField:true)
+                        ZStack(alignment: .trailing){
+                            InputView(text: $confirmPassword, placeholder: "Confirm Password", isSecureField:true)
+                            
+                            if !password.isEmpty && !confirmPassword.isEmpty {
+                                if password == confirmPassword {
+                                    Image(systemName: "checkmark.circle.fill").imageScale(.large).fontWeight(.bold).foregroundColor(Color(.systemGreen)).padding(.top, -15)
+                                } else {
+                                    Image(systemName: "xmark.circle.fill").imageScale(.large).fontWeight(.bold).foregroundColor(Color(.systemRed)).padding(.top, -15)
+                                }
+                            }
+                        }
                         
                     }.padding(.horizontal).padding(.top, 12);
 
@@ -84,7 +111,7 @@ struct signUpPage: View{
                     }label:{
                         
                         Text("Sign up").frame(maxWidth:200).padding().font(.custom("SometypeMono-Regular", size: 16)).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
-                    }.padding(.top)
+                    }.disabled(!formIsValid).opacity(formIsValid ? 1.0 : 0.8).padding(.top)
                     
                     HStack{
                         
@@ -140,7 +167,7 @@ struct logInScreen : View{
                 }label:{
                     
                     Text("Log in").frame(maxWidth:200).padding().font(.custom("SometypeMono-Regular", size: 16)).background(Color(red: 0.7, green:0.4, blue: 1)).foregroundColor(Color.white).cornerRadius(50)
-                }.padding(.top)
+                }.disabled(!formIsValid).opacity(formIsValid ? 1.0 : 0.8).padding(.top)
     
                 
                 HStack{
@@ -156,4 +183,5 @@ struct logInScreen : View{
         }
     }
 }
+
 
