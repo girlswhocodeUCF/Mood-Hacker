@@ -3,10 +3,10 @@ import NaturalLanguage
 
 @Observable
 public class RecommenderService {
-    public init?() {
+    public init?(for userEnergyLevel: String) {
         var activityModel = ActivityModel()
         let allActivities = activityModel.loadCSV(from: "activity_list")
-        let userEnergyLevel = getUserEnergyLevel()
+        print(userEnergyLevel)
         
         var likedActivity = getRatedActivity(for: userEnergyLevel, activities: allActivities)
         print(likedActivity?.name)
@@ -16,6 +16,7 @@ public class RecommenderService {
         print("Recommended Activities based on description similarity: ", recommendedActivities)
         for activity in recommendedActivities {
             print(activity.name)
+         
         }
         
         

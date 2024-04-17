@@ -8,31 +8,34 @@ struct MainpageView: View {
     }
 }
 
-
+/*
 struct MainpageView_Previews: PreviewProvider{
     static var previews: some View {
         MainpageView().environmentObject(AuthViewModel())
     }
 }
+ */
 
 //if u want to preview it without building, comment the other one out, then run this
 
-//struct MainpageView_Previews: PreviewProvider{
-//    static var previews: some View {
-//        MainpageView())
-//    }
-//}
+struct MainpageView_Previews: PreviewProvider{
+    static var previews: some View {
+        MainpageView();
+    }
+}
 
 struct mainPage: View{
     
-    @EnvironmentObject var viewModel: AuthViewModel
+    //@EnvironmentObject var viewModel: AuthViewModel
     var body: some View{
         NavigationView{
             
             
-            if let user = viewModel.currentUser {
+            //if let user = viewModel.currentUser {
             @State var selectedFeeling = ""
-            @State var username = user.fullname
+            //@State var username = user.fullname
+            @State var username = "Gabby"
+            @State var selectedFeelingIndex = 0
             let feelings = ["High Energy Unpleasant", "High Energy Pleasant", "Low Energy Unpleasant", "Low Energy Pleasant"]
             
             VStack{
@@ -55,25 +58,29 @@ struct mainPage: View{
                         .position(x: 250, y: 270)
                         .foregroundColor(.black)
                     
-                    Picker("feelings", selection: $selectedFeeling) {
-                        ForEach(feelings, id: \.self) { feeling in
-                            Text(feeling)
-                        }
+                    Picker("Feelings", selection: $selectedFeelingIndex) {
+                                ForEach(0..<feelings.count, id: \.self) { index in
+                                    Text(feelings[index])
+                                }
+                            }
                         .pickerStyle(.wheel)
                         .frame(width: 300, height: 80)
                         .background(RoundedRectangle(cornerRadius:15)
                             .stroke(.purple))
                         .position(x: 250, y: 350)
-                    }
+                    
+                    Text("You selected: \(feelings[selectedFeelingIndex].components(separatedBy: " ").first ?? "")")
+                                .padding()
                     
                     
-                    .position(x: 250, y: 350)
+                    //.position(x: 250, y: 350)
                 }
                 
                 VStack {
                     
                     
-                    Button("Get Recommendations") {
+                    Button(action: {RecommenderService.init(for: feelings[selectedFeelingIndex].components(separatedBy: " ").first ?? "")}) {
+                        Text("Recommend Activities")
                     }
                     .font(.custom("SometypeMono-Regular", size: 16))
                     .buttonStyle(.bordered)
@@ -88,21 +95,22 @@ struct mainPage: View{
                     // recommendations
                     Button(action: {}) {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(#colorLiteral(red: 0.4707803726196289, green: 0.40917888283729553, blue: 0.6461077332496643, alpha: 1)))
-                            .frame(width: 170, height: 63)
+                            .tint(Color(hue: 0.898, saturation: 0.614, brightness: 0.86))
+
+                            .frame(width: 170, height: 150)
                             .padding()
                     }
                     
                     Button(action: {}) {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(#colorLiteral(red: 0.4707803726196289, green: 0.40917888283729553, blue: 0.6461077332496643, alpha: 1)))
-                            .frame(width: 170, height: 63)
+                            .tint(Color(hue: 0.898, saturation: 0.614, brightness: 0.86))
+                            .frame(width: 170, height: 150)
                             .padding()
                     }
                     
                     
                 }
-                .frame(width: 500, height: 110)
+                .frame(width: 500, height: 200)
                 
                 
                 HStack(alignment: .bottom, spacing : -10) {
@@ -127,7 +135,7 @@ struct mainPage: View{
                     Button(action: {}) {
                         Image("Image")
                             .resizable()
-                        //                        .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fit)
                             .frame(width: 80, height: 80)
                             .padding()
                     }
@@ -160,6 +168,6 @@ struct mainPage: View{
             .accentColor(Color.black)
             
             }
-        }
+        //}
     }
 }
