@@ -3,18 +3,24 @@ import SwiftData
 
 
 struct MainpageView: View {
-    var body: some View {
-        mainPage()
+    public enum Feeling: String, CaseIterable, Identifiable {
+        case highEnergyUnpleasant = "High Energy Unpleasant"
+        case highEnergyPleasant = "High Energy Pleasant"
+        case lowEnergyUnpleasant = "Low Energy Unpleasant"
+        case lowEnergyPleasant = "Low Energy Pleasant"
+        
+        var id: Self {self}
     }
-}
+    
+    @State private var selectedFeeling: Feeling = .highEnergyUnpleasant
+    @State private var recommendedActivities: [ActivityModel] = []
 
-/*
-struct MainpageView_Previews: PreviewProvider{
-    static var previews: some View {
-        MainpageView().environmentObject(AuthViewModel())
-    }
+        var body: some View {
+            VStack {
+                mainPage(selectedFeeling: $selectedFeeling, recommendedActivities: $recommendedActivities)
+            }
+        }
 }
- */
 
 //if u want to preview it without building, comment the other one out, then run this
 
@@ -25,17 +31,13 @@ struct MainpageView_Previews: PreviewProvider{
 }
 
 struct mainPage: View{
-    
-    //@EnvironmentObject var viewModel: AuthViewModel
+    @Binding var selectedFeeling: MainpageView.Feeling
+    @Binding var recommendedActivities: [ActivityModel]
+
     var body: some View{
         NavigationView{
-            
-            
-            //if let user = viewModel.currentUser {
-            @State var selectedFeeling = ""
-            //@State var username = user.fullname
+    
             @State var username = "Gabby"
-            @State var selectedFeelingIndex = 0
             let feelings = ["High Energy Unpleasant", "High Energy Pleasant", "Low Energy Unpleasant", "Low Energy Pleasant"]
             
             VStack{
@@ -46,68 +48,74 @@ struct mainPage: View{
                     
                     Circle().trim(from: 0.0, to: 0.50).position(x:215).frame(width: 430).foregroundColor(Color(red: 0.8745098039215686, green:0.7019607843137254, blue: 0.9372549019607843))
                     
-                    Text("Welcome Back, \(username)!")
+                    Text("Welcome Back to")
                         .font(.custom("SometypeMono-Regular", size: 30))
-                        .foregroundColor(.black) // Set text color
+                        .foregroundColor(.white)
                         .font(.title)
                         .multilineTextAlignment(.center) // Set font and size
-                        .position(x: 250, y: 100)
+                        .position(x: 250, y: 50)
+                    
+                    Text("Mood Hacker")
+                        .font(.custom("SometypeMono-Regular", size: 30))
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .multilineTextAlignment(.center) // Set font and size
+                        .position(x: 250, y: 90)
                     
                     Text("How are you feeling today, \(username)?")
                         .font(.custom("SometypeMono-Regular", size: 16))
                         .position(x: 250, y: 270)
                         .foregroundColor(.black)
                     
-                    Picker("Feelings", selection: $selectedFeelingIndex) {
-                                ForEach(0..<feelings.count, id: \.self) { index in
-                                    Text(feelings[index])
-                                }
-                            }
-                        .pickerStyle(.wheel)
-                        .frame(width: 300, height: 80)
-                        .background(RoundedRectangle(cornerRadius:15)
-                            .stroke(.purple))
-                        .position(x: 250, y: 350)
+                    Picker("Feeling", selection: $selectedFeeling) {
+                                        ForEach(MainpageView.Feeling.allCases) { feeling in
+                                            Text(feeling.rawValue)
+                                                .tag(feeling)
+                                        }
+                                    }
+                    .pickerStyle(.wheel)
+                    .frame(width: 300, height: 80)
+                    .background(RoundedRectangle(cornerRadius:15)
+                        .stroke(.purple))
+                    .position(x: 250, y: 350)
                     
-                    Text("You selected: \(feelings[selectedFeelingIndex].components(separatedBy: " ").first ?? "")")
-                                .padding()
-                    
-                    
-                    //.position(x: 250, y: 350)
                 }
                 
                 VStack {
+
+                    Button(action: {
+                                        let feelingString = selectedFeeling.rawValue.components(separatedBy: " ").first ?? ""
+                                        let recommenderService = RecommenderService(for: feelingString)
+                        self.recommendedActivities = recommenderService.getRecommendedActivities() ?? []
+                                    }) {
+                                        Text("Recommend Activities")
+                                    }
+                                    .font(.custom("SometypeMono-Regular", size: 16))
+                                    .buttonStyle(.bordered)
+                                    .tint(Color(hue: 0.898, saturation: 0.614, brightness: 0.86))
+                                    .padding()
                     
-                    
-                    Button(action: {RecommenderService.init(for: feelings[selectedFeelingIndex].components(separatedBy: " ").first ?? "")}) {
-                        Text("Recommend Activities")
-                    }
-                    .font(.custom("SometypeMono-Regular", size: 16))
-                    .buttonStyle(.bordered)
-                    .tint(Color(hue: 0.898, saturation: 0.614, brightness: 0.86))
-                    .padding()
-                    Text("Here's your personalized recommendations:")
-                        .foregroundStyle(.gray)
-                        .font(.custom("SometypeMono-Regular", size: 14))
                 }
                 
                 HStack(alignment: .center, spacing : -10) {
-                    // recommendations
-                    Button(action: {}) {
-                        RoundedRectangle(cornerRadius: 10)
-                            .tint(Color(hue: 0.898, saturation: 0.614, brightness: 0.86))
-
-                            .frame(width: 170, height: 150)
-                            .padding()
+                    HStack(spacing: 10) {
+                        ForEach(recommendedActivities, id: \.self) { activity in
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color(hue: 0.898, saturation: 0.614, brightness: 0.86))
+                                .frame(width: 170, height: 150)
+                                .overlay(
+                                    VStack {
+                                        Text(activity.name)
+                                            .foregroundColor(.white)
+                                            .font(.title2)
+                                        Text(activity.description)
+                                            .foregroundColor(.white)
+                                            .font(.body)
+                                    }
+                                )
+                                .padding()
+                        }
                     }
-                    
-                    Button(action: {}) {
-                        RoundedRectangle(cornerRadius: 10)
-                            .tint(Color(hue: 0.898, saturation: 0.614, brightness: 0.86))
-                            .frame(width: 170, height: 150)
-                            .padding()
-                    }
-                    
                     
                 }
                 .frame(width: 500, height: 200)

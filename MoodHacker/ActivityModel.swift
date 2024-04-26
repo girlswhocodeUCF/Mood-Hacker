@@ -4,17 +4,28 @@ import TabularData
 // MARK: -> ActivityModel
 
 @Observable
-public class ActivityModel{
+public class ActivityModel: Identifiable, Hashable{
+    public let id: UUID
     var name: String
     var description: String
     var energyLevel: String
     var rating: String
     
-    init(name: String = "", description: String = "", energyLevel: String = "", rating: String = "") {
+    init(id: UUID = UUID(), name: String = "", description: String = "", energyLevel: String = "", rating: String = "") {
+        self.id = id
         self.name = name
         self.description = description
         self.energyLevel = energyLevel
         self.rating = rating
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(description)
+    }
+    
+    public static func == (lhs: ActivityModel, rhs: ActivityModel) -> Bool {
+        return lhs.name == rhs.name && lhs.description == rhs.description
     }
     
     public func loadCSV(from csvName: String) -> [ActivityModel] {

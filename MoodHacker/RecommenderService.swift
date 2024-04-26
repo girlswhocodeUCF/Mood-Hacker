@@ -1,26 +1,33 @@
 import Foundation
+import Combine
 import NaturalLanguage
 
-@Observable
-public class RecommenderService {
-    public init?(for userEnergyLevel: String) {
+public class RecommenderService: ObservableObject {
+    @Published var recommendedActivities: [ActivityModel] = []
+    
+    public init(for userEnergyLevel: String) {
         var activityModel = ActivityModel()
         let allActivities = activityModel.loadCSV(from: "activity_list")
-        print(userEnergyLevel)
         
         var likedActivity = getRatedActivity(for: userEnergyLevel, activities: allActivities)
-        print(likedActivity?.name)
         
-        
-        var recommendedActivities = recommendActivitiesBasedOnDescription(likedActivity!, energyLevel: userEnergyLevel, allActivities: allActivities)
-        print("Recommended Activities based on description similarity: ", recommendedActivities)
-        for activity in recommendedActivities {
-            print(activity.name)
-         
-        }
-        
-        
+        recommendedActivities = recommendActivitiesBasedOnDescription(likedActivity!, energyLevel: userEnergyLevel, allActivities: allActivities)
     }
+    
+    
+    public func getRecommendedActivities() -> [ActivityModel] {
+        return recommendedActivities
+    }
+    
+    public func updateRecommendedActivities(for userEnergyLevel: String) {
+            var activityModel = ActivityModel()
+            let allActivities = activityModel.loadCSV(from: "activity_list")
+
+            var likedActivity = getRatedActivity(for: userEnergyLevel, activities: allActivities)
+
+            recommendedActivities = recommendActivitiesBasedOnDescription(likedActivity!, energyLevel: userEnergyLevel, allActivities: allActivities)
+        }
+
     
     // Filters out activities by user's energy level and filters out negatively rated activities
     func filterActivities(for energyLevel: String, activities: [ActivityModel]) -> [ActivityModel] {

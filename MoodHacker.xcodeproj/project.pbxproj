@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0D822C532BC8E80900373EC4 /* SometypeMono-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D822C522BC8E80800373EC4 /* SometypeMono-VariableFont_wght.ttf */; };
-		1F72B3872BCF7B9700F3F426 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F72B3862BCF7B9600F3F426 /* GoogleService-Info.plist */; };
 		1F72B3892BCF83E900F3F426 /* RecommenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F72B3882BCF83E900F3F426 /* RecommenderService.swift */; };
 		1F72B38C2BCF83F400F3F426 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F72B38A2BCF83F300F3F426 /* ActivityModel.swift */; };
 		1F72B38D2BCF83F400F3F426 /* activity_list.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1F72B38B2BCF83F400F3F426 /* activity_list.csv */; };
+		1F7842D22BD05C3B00DD8381 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F7842D12BD05C3B00DD8381 /* GoogleService-Info.plist */; };
 		E10EE5052BC9A48C000C0E3F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10EE5042BC9A48C000C0E3F /* InputView.swift */; };
 		E10EE5072BC9B287000C0E3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10EE5062BC9B287000C0E3F /* User.swift */; };
 		E1173E8A2BB72D6C00F6C886 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1173E892BB72D6C00F6C886 /* ContentView.swift */; };
@@ -31,10 +31,10 @@
 /* Begin PBXFileReference section */
 		0D822C522BC8E80800373EC4 /* SometypeMono-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SometypeMono-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		0D822C542BC8E9B200373EC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1F72B3862BCF7B9600F3F426 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F72B3882BCF83E900F3F426 /* RecommenderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommenderService.swift; sourceTree = "<group>"; };
 		1F72B38A2BCF83F300F3F426 /* ActivityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		1F72B38B2BCF83F400F3F426 /* activity_list.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = activity_list.csv; sourceTree = "<group>"; };
+		1F7842D12BD05C3B00DD8381 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E10EE5042BC9A48C000C0E3F /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E10EE5062BC9B287000C0E3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1173E842BB72D6C00F6C886 /* MoodHacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodHacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,7 +90,7 @@
 		E1173E862BB72D6C00F6C886 /* MoodHacker */ = {
 			isa = PBXGroup;
 			children = (
-				1F72B3862BCF7B9600F3F426 /* GoogleService-Info.plist */,
+				1F7842D12BD05C3B00DD8381 /* GoogleService-Info.plist */,
 				0D822C542BC8E9B200373EC4 /* Info.plist */,
 				0D822C512BC8E7C900373EC4 /* Fonts */,
 				E18C74822BBB53D00057076D /* MoodHackerApp.swift */,
@@ -187,7 +187,7 @@
 			files = (
 				E1173E912BB72D6D00F6C886 /* Preview Assets.xcassets in Resources */,
 				1F72B38D2BCF83F400F3F426 /* activity_list.csv in Resources */,
-				1F72B3872BCF7B9700F3F426 /* GoogleService-Info.plist in Resources */,
+				1F7842D22BD05C3B00DD8381 /* GoogleService-Info.plist in Resources */,
 				0D822C532BC8E80900373EC4 /* SometypeMono-VariableFont_wght.ttf in Resources */,
 				E1173E8E2BB72D6D00F6C886 /* Assets.xcassets in Resources */,
 			);
